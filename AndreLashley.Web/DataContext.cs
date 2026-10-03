@@ -1,7 +1,13 @@
 using AndreLashley.Web.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-public class DataContext(DbContextOptions<DataContext> options) : DbContext(options)
+public class DataContext : IdentityDbContext<ApplicationUser>
 {
-    public DbSet<Skill> Skill { get; set; } = default!;
+    public DataContext(DbContextOptions<DataContext> options)
+        : base(options)
+    {
+    }
+
+    public DbSet<Skill> Skills { get; set; }
 }
