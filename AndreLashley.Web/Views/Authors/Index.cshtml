@@ -1,0 +1,11 @@
+﻿@model IEnumerable<ApplicationUser>
+
+@foreach (var user in Model)
+{
+<div>
+    <h2>@user.UserName</h2>
+    <p>Email: @user.Email</p>
+    <p><a asp-action="Details" asp-route-id="@user.Id">View Details</a></p>
+</div>
+}
+
